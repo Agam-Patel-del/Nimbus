@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 900;
-    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
 }
 
 .header-title {
@@ -32,7 +32,7 @@
     align-items: center;
     gap: 12px;
     padding: 6px 14px;
-    background: #f8fafc;
+    background: var(--color-bg-alt);
     border-radius: 10px;
     border: 1px solid var(--color-divider);
     transition: all 0.2s;
@@ -40,7 +40,7 @@
 
 .user-info-brief:hover {
     border-color: var(--color-accent);
-    background: white;
+    background: var(--color-secondary);
 }
 
 .user-name-header {
@@ -52,7 +52,7 @@
 .avatar-header {
     width: 38px;
     height: 38px;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@
     font-size: 15px;
     color: var(--color-secondary);
     transition: all 0.2s;
-    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
 }
 
 .avatar-header:hover {
@@ -94,6 +94,6 @@
 }
 
 .header-icon-btn:hover {
-    color: #ef4444;
-    background: #fef2f2;
+    color: var(--color-accent);
+    background: var(--color-bg-alt);
 }

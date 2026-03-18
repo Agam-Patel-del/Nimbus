@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import AuthBranding from './auth-branding/AuthBranding';
+import Logo from '../../assets/Logo';
 import { toast } from '../../utils/toast';
 import './auth.css';
 
@@ -52,42 +52,38 @@ const Signup = () => {
 
     return (
         <div className="auth-page-container">
-            <AuthBranding
-                title={<>Start Your Journey <br /> with AI-Powered Tools</>}
-                subtitle="Create stunning content and automate workflows in seconds."
-            />
+            <div className="auth-center-panel">
+                <div className="auth-header-logo">
+                    <Logo size="140px" showText={true} />
+                </div>
 
-            <div className="auth-right-panel">
                 <div className="auth-form-wrapper">
-                    <h1 className="auth-title">Create Account</h1>
-                    <p className="auth-subtitle">Join us to access smart academic tools.</p>
+                    <h1 className="auth-title">Create an account</h1>
+                    <p className="auth-subtitle">We suggest using the <strong>email address you use at work.</strong></p>
 
                     <form className="signup-form" onSubmit={handleSubmit}>
                         <div className="auth-input-group">
-                            <label className="auth-label">Full Name</label>
                             <input
                                 type="text"
                                 className="auth-input"
-                                placeholder="Agam Patel"
+                                placeholder="Full Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
 
                         <div className="auth-input-group">
-                            <label className="auth-label">Email Address</label>
                             <input
                                 type="email"
                                 className="auth-input"
-                                placeholder="abc@gmail.com"
+                                placeholder="name@work-email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
                         <div className="auth-input-group">
-                            <label className="auth-label">I am a...</label>
-                            <select className="auth-input" style={{ height: '48px' }} value={role} onChange={(e) => setRole(e.target.value)}>
+                            <select className="auth-input" value={role} onChange={(e) => setRole(e.target.value)}>
                                 <option value="Society Member">Society Member</option>
                                 <option value="Professor">Professor</option>
                                 <option value="Office Staff">Office Staff</option>
@@ -95,12 +91,11 @@ const Signup = () => {
                         </div>
 
                         <div className="auth-input-group">
-                            <label className="auth-label">Password</label>
                             <div className="password-input-wrapper" style={{ position: 'relative' }}>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     className="auth-input"
-                                    placeholder="Enter password..."
+                                    placeholder="Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
@@ -115,12 +110,11 @@ const Signup = () => {
                         </div>
 
                         <div className="auth-input-group">
-                            <label className="auth-label">Confirm Password</label>
                             <div className="password-input-wrapper" style={{ position: 'relative' }}>
                                 <input
                                     type={showConfirmPassword ? "text" : "password"}
                                     className="auth-input"
-                                    placeholder="Re-enter password..."
+                                    placeholder="Confirm password"
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                 />
@@ -140,16 +134,12 @@ const Signup = () => {
                             </div>
                         )}
 
-                        <button type="submit" className="auth-button">Sign Up</button>
+                        <button type="submit" className="auth-button">Continue</button>
 
                         <div style={{ textAlign: 'center', marginTop: '24px', fontSize: '14px', color: 'var(--color-text)' }}>
-                            Already have an account? <Link to="/login" style={{ color: 'var(--color-accent)', fontWeight: '700', textDecoration: 'none' }}>Log in</Link>
+                            Already using Nimbus? <Link to="/login" style={{ color: 'var(--color-accent)', fontWeight: '700', textDecoration: 'none' }}>Sign in to an existing workspace</Link>
                         </div>
                     </form>
-
-                    <div style={{ textAlign: 'center', marginTop: '30px', fontSize: '12px', opacity: 0.5 }}>
-                        © Nimbus. All rights reserved.
-                    </div>
                 </div>
             </div>
         </div>

@@ -61,7 +61,7 @@ const RecentActivity = ({ filterType = 'All', limit = 3, showViewAll = true, tit
         <div className="recent-activity-wrapper">
             {title && (
                 <div className="section-header">
-                    <h2 className="section-title">{title}</h2>
+                    <h3 className="section-title">{title}</h3>
                     {showViewAll && (
                         <Link
                             to="/activity"

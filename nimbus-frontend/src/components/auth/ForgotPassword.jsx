@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import AuthBranding from './auth-branding/AuthBranding';
+import Logo from '../../assets/Logo';
 import { toast } from '../../utils/toast';
 import './auth.css';
 
@@ -75,12 +75,10 @@ const ForgotPassword = () => {
 
     return (
         <div className="auth-page-container">
-            <AuthBranding
-                title={<>Account Recovery<br />Made Simple</>}
-                subtitle="Verify your identity to regain access to your smart assistant."
-            />
-
-            <div className="auth-right-panel">
+            <div className="auth-center-panel">
+                <div className="auth-header-logo">
+                    <Logo size="140px" showText={true} />
+                </div>
                 <div className="auth-form-wrapper">
                     {successMessage && (
                         <div className="auth-status-message auth-status-success">
@@ -90,17 +88,17 @@ const ForgotPassword = () => {
 
                     {stage === 'email' && (
                         <>
-                            <h1 className="auth-title">Forgot Password?</h1>
-                            <p className="auth-subtitle">Enter your email and we'll send an OTP.</p>
+                            <h1 className="auth-title" style={{ fontSize: '36px', marginBottom: '12px', letterSpacing: '-1.5px' }}>Reset your password</h1>
+                            <p className="auth-subtitle" style={{ fontSize: '16px', marginBottom: '32px' }}>Enter your email and we'll send an OTP.</p>
                             <form className="fp-form" onSubmit={handleSendOtp}>
-                                <div className="auth-input-group">
-                                    <label className="auth-label">Email Address</label>
+                                <div className="auth-input-group" style={{ marginBottom: '24px' }}>
                                     <input
                                         type="email"
                                         className="auth-input"
-                                        placeholder="Enter your email..."
+                                        placeholder="name@work-email.com"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
+                                        style={{ height: '52px', fontSize: '18px' }}
                                         required
                                     />
                                 </div>
@@ -109,7 +107,7 @@ const ForgotPassword = () => {
                                     {loading ? 'Sending...' : 'Send OTP'}
                                 </button>
                                 <div style={{ textAlign: 'center', marginTop: '24px', fontSize: '14px' }}>
-                                    <Link to="/login" style={{ color: 'var(--color-accent)', fontWeight: '600', textDecoration: 'none' }}>Back to Login</Link>
+                                    <Link to="/login" style={{ color: 'var(--color-text-muted)', fontWeight: '600', textDecoration: 'none' }}>Back to Login</Link>
                                 </div>
                             </form>
                         </>
@@ -117,18 +115,18 @@ const ForgotPassword = () => {
 
                     {stage === 'resetPassword' && (
                         <>
-                            <h1 className="auth-title">New Password</h1>
-                            <p className="auth-subtitle">Secure your account with a new password.</p>
+                            <h1 className="auth-title" style={{ fontSize: '36px', marginBottom: '12px', letterSpacing: '-1.5px' }}>New Password</h1>
+                            <p className="auth-subtitle" style={{ fontSize: '16px', marginBottom: '32px' }}>Secure your account with a new password.</p>
                             <form className="fp-form" onSubmit={handleResetPassword}>
                                 <div className="auth-input-group">
-                                    <label className="auth-label">New Password</label>
                                     <div className="password-input-wrapper" style={{ position: 'relative' }}>
                                         <input
                                             type={showPassword ? 'text' : 'password'}
                                             className="auth-input"
-                                            placeholder="Enter new password..."
+                                            placeholder="New password"
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
+                                            style={{ height: '52px', fontSize: '18px' }}
                                             required
                                         />
                                         <div
@@ -140,15 +138,15 @@ const ForgotPassword = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="auth-input-group">
-                                    <label className="auth-label">Confirm Password</label>
+                                <div className="auth-input-group" style={{ marginBottom: '24px' }}>
                                     <div className="password-input-wrapper" style={{ position: 'relative' }}>
                                         <input
                                             type={showConfirmPassword ? 'text' : 'password'}
                                             className="auth-input"
-                                            placeholder="Confirm new password..."
+                                            placeholder="Confirm new password"
                                             value={confirmPassword}
                                             onChange={(e) => setConfirmPassword(e.target.value)}
+                                            style={{ height: '52px', fontSize: '18px' }}
                                             required
                                         />
                                         <div
@@ -164,6 +162,9 @@ const ForgotPassword = () => {
                                 <button type="submit" className="auth-button">
                                     {loading ? 'Resetting...' : 'Reset Password'}
                                 </button>
+                                <div style={{ textAlign: 'center', marginTop: '24px', fontSize: '14px' }}>
+                                    <Link to="/login" style={{ color: 'var(--color-text-muted)', fontWeight: '600', textDecoration: 'none' }}>Back to Login</Link>
+                                </div>
                             </form>
                         </>
                     )}

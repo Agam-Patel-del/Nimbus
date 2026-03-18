@@ -1,5 +1,5 @@
 .tool-page {
-    background-color: var(--color-secondary);
+    background-color: transparent;
     height: 100vh;
     padding-top: 72px;
     box-sizing: border-box;
@@ -137,11 +137,8 @@
 }
 
 .tool-option-card.active {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent);
     border-color: var(--color-accent);
-}
-
-.tool-option-card.active {
     color: var(--color-secondary) !important;
 }
 
@@ -274,7 +271,7 @@
 
 .tool-btn-final {
     grid-column: span 2;
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-secondary);
     padding: 16px;
     border-radius: var(--radius-default);
@@ -287,18 +284,19 @@
 }
 
 .tool-btn-final:hover {
-    background: #1e293b;
+    background: var(--color-accent-hover);
 }
 
 /* 8. Common Components */
 .premium-badge {
-    background: rgba(21, 128, 61, 0.1);
-    color: var(--color-success);
+    background: var(--color-accent);
+    color: var(--color-secondary);
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 10px;
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .tool-footer-history {
@@ -316,14 +314,14 @@
 }
 
 .tool-status-success {
-    background: rgba(21, 128, 61, 0.1);
+    background: var(--color-bg-alt);
     color: var(--color-success);
-    border: 1px solid rgba(21, 128, 61, 0.2);
+    border: 1px solid var(--color-divider);
 }
 
 .tool-status-error {
-    background: rgba(251, 146, 60, 0.1);
-    border: 1px solid rgba(251, 146, 60, 0.2);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-divider);
     color: var(--color-accent-hover);
 }
 

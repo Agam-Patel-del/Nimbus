@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Logo from '../../assets/Logo';
 import { toast } from '../../utils/toast';
-import AuthBranding from './auth-branding/AuthBranding';
 import './auth.css';
 
 const VerifyOTP = () => {
@@ -83,15 +83,13 @@ const VerifyOTP = () => {
 
     return (
         <div className="auth-page-container">
-            <AuthBranding
-                title={<>Security First.<br />Verify Your Identity.</>}
-                subtitle="We've sent a secure 6-digit code to your email address."
-            />
-
-            <div className="auth-right-panel">
+            <div className="auth-center-panel">
+                <div className="auth-header-logo">
+                    <Logo size="140px" showText={true} />
+                </div>
                 <div className="auth-form-wrapper">
-                    <h1 className="auth-title">Verify Email</h1>
-                    <p className="auth-subtitle">Code sent to <strong>{email}</strong></p>
+                    <h1 className="auth-title" style={{ fontSize: '36px', marginBottom: '12px', letterSpacing: '-1.5px' }}>Verify Email</h1>
+                    <p className="auth-subtitle" style={{ fontSize: '16px', marginBottom: '32px' }}>Code sent to <strong>{email}</strong></p>
                     <form className="verify-otp-form" onSubmit={handleVerifyOtp}>
                         <div className="otp-input-group">
                             {otp.map((digit, index) => (

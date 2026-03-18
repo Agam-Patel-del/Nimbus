@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import RecentActivity from '../../common/RecentActivity';
-import './activity.css'; // Specific tool styles
+import './activity.css';
 
 const Activity = () => {
   const location = useLocation();

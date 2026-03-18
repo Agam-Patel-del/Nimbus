@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import AuthBranding from './auth-branding/AuthBranding';
+import Logo from '../../assets/Logo';
 import { toast } from '../../utils/toast';
 import './auth.css';
 
@@ -41,36 +42,27 @@ const Login = () => {
 
   return (
     <div className="auth-page-container">
-      <AuthBranding
-        title={
-          <>
-            Your Internal AI Assistant
-            <br />
-            for Academic Workflows
-          </>
-        }
-        subtitle="Efficiently automate emails, posters, logos, and routine tasks in seconds."
-      />
+      <div className="auth-center-panel">
+        <div className="auth-header-logo">
+          <Logo size="140px" showText={true} />
+        </div>
 
-      <div className="auth-right-panel">
         <div className="auth-form-wrapper">
-          <h1 className="auth-title">Welcome Back</h1>
-          <p className="auth-subtitle">Log in to your account to continue.</p>
+          <h1 className="auth-title">Log into your workspace</h1>
+          <p className="auth-subtitle">We suggest using the <strong>email address you use at work.</strong></p>
 
           <form className="login-form" onSubmit={handleSubmit}>
-            <div className="auth-input-group">
-              <label className="auth-label">Email Address</label>
+            <div className="auth-input-group" style={{ marginBottom: '16px' }}>
               <input
                 type="email"
                 className="auth-input"
-                placeholder="Enter your email..."
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
-            <div className="auth-input-group">
-              <label className="auth-label">Password</label>
+            <div className="auth-input-group" style={{ marginBottom: '24px' }}>
               <div
                 className="password-input-wrapper"
                 style={{ position: "relative" }}
@@ -78,7 +70,7 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   className="auth-input"
-                  placeholder="Enter your password..."
+                  placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -98,22 +90,6 @@ const Login = () => {
               </div>
             </div>
 
-            <div
-              className="forgot-password-container"
-              style={{ textAlign: "right", marginBottom: "16px" }}
-            >
-              <Link
-                to="/forgot-password"
-                style={{
-                  fontSize: "13px",
-                  color: "var(--color-accent)",
-                  textDecoration: "none",
-                }}
-              >
-                Forgot Password?
-              </Link>
-            </div>
-
             {(formError || authError) && (
               <div className="auth-status-message auth-status-error">
                 {formError || authError}
@@ -121,7 +97,7 @@ const Login = () => {
             )}
 
             <button type="submit" className="auth-button">
-              Log In
+              Continue
             </button>
 
             <div
@@ -133,7 +109,7 @@ const Login = () => {
                 color: "var(--color-text)",
               }}
             >
-              Don't have an account?{" "}
+              New to Nimbus?{" "}
               <Link
                 to="/signup"
                 style={{
@@ -142,21 +118,21 @@ const Login = () => {
                   textDecoration: "none",
                 }}
               >
-                Sign up
+                Create an account
+              </Link>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "12px", fontSize: "14px" }}>
+              <Link
+                to="/forgot-password"
+                style={{
+                  color: "var(--color-text-muted)",
+                  textDecoration: "none",
+                }}
+              >
+                Forgot your password?
               </Link>
             </div>
           </form>
-
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "40px",
-              fontSize: "12px",
-              opacity: 0.5,
-            }}
-          >
-            © Nimbus. All rights reserved.
-          </div>
         </div>
       </div>
     </div>
